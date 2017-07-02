@@ -2,6 +2,9 @@ class StudentsController < ApplicationController
 <<<<<<< HEAD
 
 =======
+<<<<<<< HEAD
+
+=======
     def index
         @students = "sample data"
     end
@@ -45,4 +48,5 @@ class StudentsController < ApplicationController
                     },
     end
 >>>>>>> 6d22940ac26f2aa821952805061f632871348817
+>>>>>>> 089f8314d12edfe017654ab0bafbdfc0e10f02c3
 end
