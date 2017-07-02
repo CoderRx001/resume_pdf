@@ -1,3 +1,10 @@
 Rails.application.routes.draw do
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
+<<<<<<< HEAD
+  get '/students' => 'students#index'
+  get '/' => 'students#index'
+
+  get '/students/:id' => 'students#show'
+=======
+
+>>>>>>> 6d22940ac26f2aa821952805061f632871348817
 end
