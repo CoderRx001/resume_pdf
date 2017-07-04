@@ -1,52 +1,21 @@
+require 'prawn'
 class StudentsController < ApplicationController
-<<<<<<< HEAD
-
-=======
-<<<<<<< HEAD
-
-=======
+    
     def index
-        @students = "sample data"
+        @students = Unirest.get('https://secure-ravine-87574.herokuapp.com/api/v1/students.json').body
+
     end
 
     def show
-        @student = {
-                    first_name: "",
-                    last_name: '',
-                    email: '',
-                    phone_number: '',
-                    bio: '',
-                    linkedin_url: '',
-                    twitter_url: '',
-                    blog_url: '',
-                    resume_url: '',
-                    github_url: '',
-                    photo: '',
-                    experience: [{
-                                start_date: '',
-                                end_date: '',
-                                job_title: '',
-                                company_name: '',
-                                details: ''
-                                }],
-                    education: [{
-                                start_date: '',
-                                end_date: '',
-                                degree: '',
-                                university_name: '',
-                                details: ''
-                                }],
-                    skills: [{
-                                skill_name: ''
-                            }],
-                    capstone: [{
-                                name: '',
-                                description: '',
-                                url: '',
-                                screenshot: ''
-                        }]
-                    },
+        student = Unirest.get("https://secure-ravine-87574.herokuapp.com/api/v1/students/#{params[:id]}.json").body
+        
+          respond_to do |format|
+                        format.html
+                        format.pdf do
+                            pdf = Prawn::Document.new
+                            pdf.text "#{student['first_name']} #{student['']}"
+                            send_data pdf.render, filename: "student_#{student['last_name']}"
+                        end
+                    end
     end
->>>>>>> 6d22940ac26f2aa821952805061f632871348817
->>>>>>> 089f8314d12edfe017654ab0bafbdfc0e10f02c3
 end
